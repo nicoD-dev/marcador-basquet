@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import PanelEquipo from './components/PanelEquipo';
 
 {/*Se define el parametro de 2 equipos*/}
 type Equipo = 'local' | 'visitante';
@@ -33,25 +34,21 @@ export default function App() {
         <View style={{flexDirection:'row', justifyContent: 'center', width: '100%', paddingHorizontal: 10}}>
 
         {/*Marcador de equipo local*/}
-        <View style={{margin:20, alignItems:'center'}}>
-        <Text style={{fontSize:20}}>Equipo local: {countLocal}</Text>
-        <View style={{flexDirection: 'column', gap:7, marginTop:8, width:150}}>
-        <Button title='+1' onPress={() => anotar('local', 1)} />
-        <Button title='+2' onPress={() => anotar('local', 2)} />
-        <Button title='+3' onPress={() => anotar('local', 3)} />
-          </View>
-          </View>
+        <PanelEquipo
+          nombre='Equipo local'
+          puntos={countLocal}
+          color='blue'
+          onAnotar={(a) => anotar('local', a)}
+          />
 
       {/*Marcador de equipo visitante*/}
      
-      <View style={{margin:20, alignItems:'center'}}>
-      <Text style={{fontSize:20}}>Equipo visitante: {countVisit}</Text>
-      <View style={{flexDirection: 'column', gap:7, marginTop:8, width:150}}>
-      <Button title='+1' onPress={() => anotar('visitante', 1)} />
-      <Button title='+2' onPress={() => anotar('visitante', 2)} />
-      <Button title='+3' onPress={() => anotar('visitante', 3)} />
-        </View>
-        </View>
+      <PanelEquipo
+        nombre='Equipo visitante'
+        puntos={countVisit}
+        color='green'
+        onAnotar={(b) => anotar('visitante', b)}
+        />
       </View>
       {/*Boton que reinicia los contadores*/}
         <Button title='Nuevo partido' onPress={() => [setCountVisit(0), setCountLocal(0)]}></Button>
