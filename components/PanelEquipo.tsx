@@ -7,12 +7,22 @@ interface PanelEquipoProps {
     puntos: number
     color: string
     onAnotar: (puntos: number) => void
+    ganando: boolean
 };
 {/*Extrae las variables de props*/}
-export default function PanelEquipo({ nombre, puntos, color, onAnotar}: PanelEquipoProps) {
+export default function PanelEquipo({ nombre, puntos, color, onAnotar, ganando}: PanelEquipoProps) {
     return (
-        <View style={{margin:20, alignItems:'center', paddingHorizontal: 7}}>
-            {/*Linea anterior define la separacion de los botones de los dos equipos*/}
+        <View style={{
+            margin:20,
+            alignItems:'center',
+            paddingHorizontal: 7,
+            borderWidth: ganando ? 5:0,
+            borderColor: color,
+            paddingVertical: 2,
+            borderRadius: 10
+            }}>
+            {/*Style define la separacion de los botones de los dos equipos*/}
+            {/*Borderwidth pregunta si ganando es true o false, y dibuja un borde de 5 o 0 pixeles del color correspondiente*/}
             <Text style={{fontSize:20, color:color}} >
                 {nombre}: {puntos}
             </Text>
