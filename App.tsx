@@ -48,7 +48,7 @@ export default function App() {
         {/*se asegura de mantener el status bar del telefono igual que los settings del sistema*/}
         <StatusBar style='auto' />
         {/*Alinea las columnas de forma horizontal*/}
-        <View style={{flexDirection:'row', justifyContent: 'center', width: '100%', paddingHorizontal: 10}}>
+        <View style={{flexDirection:'row', justifyContent: 'center', width: '100%'}}>
 
         {/*Marcador de equipo local*/}
         <PanelEquipo

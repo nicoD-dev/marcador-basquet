@@ -13,12 +13,12 @@ interface PanelEquipoProps {
 export default function PanelEquipo({ nombre, puntos, color, onAnotar, ganando}: PanelEquipoProps) {
     return (
         <View style={{
-            margin:20,
+            margin:2,
             alignItems:'center',
-            paddingHorizontal: 7,
+            paddingHorizontal: 4,
             borderWidth: ganando ? 5:0,
             borderColor: color,
-            paddingVertical: 2,
+            paddingVertical: 3,
             borderRadius: 10
             }}>
             {/*Style define la separacion de los botones de los dos equipos*/}
